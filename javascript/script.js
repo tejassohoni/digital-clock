@@ -33,12 +33,21 @@ function digiClock() {
   var hours = date.getHours();
   var minutes = ("0" + date.getMinutes()).slice(-2);
   var seconds = ("0" + date.getSeconds()).slice(-2);
+  var format = hours < 12 ? "AM" : "PM";
   hours = hours > 12 ? hours - 12 : hours;
   finalHours = ("0" + hours).slice(-2);
-  format = hours < 12 ? "AM" : "PM";
 
-  let ids = ["day", "month", "date", "year", "hour", "min", "sec"];
-  let values = [dayName, month, dayNum, year, finalHours, minutes, seconds];
+  let ids = ["day", "month", "date", "year", "hour", "min", "sec", "format"];
+  let values = [
+    dayName,
+    month,
+    dayNum,
+    year,
+    finalHours,
+    minutes,
+    seconds,
+    format,
+  ];
 
   for (var i = 0; i < ids.length; i++)
     document.getElementById(ids[i]).innerHTML = values[i];
